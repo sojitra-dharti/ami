@@ -6,7 +6,7 @@
         "aws_region": "{{env `aws_region`}}",
         "source_ami": "ami-0817d428a6fb68645",
         "ssh_username":"ubuntu",
-        "aws_ami_users":"{{env `ami_users`}}"
+        "aws_ami_users":"{{env `AMI_USERS`}}"
     },
 
     "builders": [
