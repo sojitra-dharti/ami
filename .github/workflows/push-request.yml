@@ -21,6 +21,7 @@ jobs:
          AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}
          SOURCE_AMI: "ami-0817d428a6fb68645"
          SSH_USERNAME: ${{secrets.SSH_USERNAME}}
+
      
 
 
