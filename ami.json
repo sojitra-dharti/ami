@@ -1,12 +1,12 @@
 {
     "variables": {
         
-        "aws_access_key": "{{env `aws_access_key`}}",
-        "aws_secret_key": "{{env `aws_secret_key`}}",
-        "aws_region": "{{env `aws_region`}}",
+        "aws_access_key": "AKIAWIFN2KQ2GRPSSPOA",
+        "aws_secret_key": "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",
+        "aws_region": "us-east-1",
         "source_ami": "ami-0817d428a6fb68645",
         "ssh_username":"ubuntu",
-        "aws_ami_users":"{{env `AMI_USERS`}}"
+        "aws_ami_users":"952934740739"
     },
 
     "builders": [
@@ -34,6 +34,16 @@
     ],
     "provisioners": [
         {
+            "type": "file",
+            "source": "cloudwatch.service",
+            "destination": "/tmp/cloudwatch.service"
+         },
+         {
+            "type": "file",
+            "source": "configCloudWatchAgent.sh",
+            "destination": "/tmp/configCloudWatchAgent.sh"
+         },
+        {
             "type": "shell",
             "inline": [
                 "sudo apt-get update",
@@ -48,7 +58,9 @@
                 "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
                 "chmod +x ./install",
                 "sudo ./install auto",
-                "sudo service codedeploy-agent status"
+                "sudo service codedeploy-agent status",
+                "wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
+                "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb"
             ]
         }
     ]
