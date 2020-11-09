@@ -34,16 +34,6 @@
     ],
     "provisioners": [
         {
-            "type": "file",
-            "source": "cloudwatch.service",
-            "destination": "/tmp/cloudwatch.service"
-         },
-         {
-            "type": "file",
-            "source": "configCloudWatchAgent.sh",
-            "destination": "/tmp/configCloudWatchAgent.sh"
-         },
-        {
             "type": "shell",
             "inline": [
                 "sudo apt-get update",
