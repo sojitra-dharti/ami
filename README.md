@@ -22,7 +22,7 @@
 **Download packer**
 
 [Download Packer](https://www.packer.io/downloads)
-update demo8
+update demo2
 
 
 
